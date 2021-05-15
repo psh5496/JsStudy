@@ -18,7 +18,6 @@ console.log(animals);
 console.log(anotherAnimals);
 // spread 문법은 배열에도 사용할 수 있음.
 
-// rest 문법, 원하는 값을 꺼내고 나머지 값을 넣어 새로운 객체를 만든다.
 const happyBoy = {
     feeling: 'happy',
     type: 'boy',
@@ -32,8 +31,8 @@ const numbers = [0, 1, 2, 3, 4, 5, 6];
 const [one, ...rest] = numbers;
 console.log(one);
 console.log(rest);
-// 배열에서도 사용할 수 있음.
 
+// rest 문법, 함수의 전달된 인수들의 목록을 배열로 전달받는다.
 function sum(...rest) {
     return rest.reduce((acc, current) => acc + current, 0);
 }
