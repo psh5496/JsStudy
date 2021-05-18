@@ -10,32 +10,68 @@
 
 * ### 콜백 함수를 이용한 비동기 처리
 
-  * 1, 2, 3 순서대로 출력하기
+  * 1부터 시작해서 3까지 1초마다 출력하는 작업
 
     ```javascript
     function increaseAndPrint(n, callback) {
         setTimeout(() => {
-    		const increased = n + 1;
+            const increased = n + 1;
             console.log(increased);
             if (callback) {
-               callback(increased); 
+                callback(increased);
             }
         }, 1000);
     }
     
-    increaseAndPrint(0, n => {
-        increaseAndPrint(n, n => {
-            increaseAndPrint(n, n => {
+    increaseAndPrint(0, (n) => {
+        increaseAndPrint(n, (n) => {
+            increaseAndPrint(n, (n) => {
                 console.log('끝!');
-            })
-        })
-    })
+            });
+        });
+    });
     
-    // 콜백 함수를 남용하면 이른바 '콜백 지옥'이라는 지저분한 코드가 된다.
+    // 콜백을 남용하면 코드의 깊이가 계속 깊어지는 콜백 지옥이 발생할 수도 있다.
     ```
 
     
 
 * ### 콜백 지옥을 피하는 방법
 
-  * 
+  * **Promise**
+
+    ```javascript
+    const myPromise = new Promise((resolve, reject) => {
+      // 구현..
+    })
+    
+    // 성공할 때는 resolve를 호출, 실패할 때는 reject를 호출해준다.
+    ```
+
+    ```javascript
+    function increaseAndPrint(n) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const value = n + 1;
+                if (value === 3) {
+                    const error = new Error();
+                    error.name = 'ValueIsFiveError';
+                    reject(error);
+                    return;
+                }
+                console.log(value);
+                resolve(value);
+            }, 1000);
+        });
+    }
+    
+    increaseAndPrint(0)
+        .then(increaseAndPrint)
+        .then(increaseAndPrint)
+        .then(increaseAndPrint)
+        .catch((e) => {
+            console.error(e);
+        });
+    ```
+
+    
