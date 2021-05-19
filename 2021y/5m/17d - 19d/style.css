@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+}
+
+#dog {
+    margin-bottom: 40px;
+}
+
+.dogs,
+.cats {
+    width: 80%;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.dogs {
+    margin-bottom: 40px;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    margin-left: 40px;
+}
