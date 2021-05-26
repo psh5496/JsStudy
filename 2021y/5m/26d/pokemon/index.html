@@ -12,15 +12,10 @@
         <header>
             <a href=""><img src="image/Pokemon_logo.svg"></a>
         </header>
-        <section class="img-box">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png">
-        </section>
+        <section class="img-box"></section>
         <section class="text-box">
             <article>
-                <b>이름 :</b>
+                <b>이름 : </b>
             </article>
             <article>
                 <b>키 :</b>
@@ -30,9 +25,11 @@
             </article>
         </section>
         <section class="search-box">
-            <input placeholder="도감 번호를 입력하세요" type="text">
-            <button>조회</button>
+            <input class="submit-input" placeholder="도감 번호를 입력하세요" type="text" onkeydown="if(window.event.keyCode==13){numberSubmit()}">
+            <input class="submit-button" type="button" value="조회">
         </section>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="pokemon.js"></script>
 </body>
 </html>
