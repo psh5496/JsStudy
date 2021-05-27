@@ -41,10 +41,10 @@ const getPokemonInfo = async function(id) {
 }
 
 const removePokemonInfo = function() {
-    for(let i = 0; i < 4; i++) {        
+    while (imgBox.childElementCount) {       
         imgBox.removeChild(imgBox.firstChild);
     }
-    for(let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {
         attribute[i].removeChild(attribute[i].lastChild);
     }
 }
