@@ -2,7 +2,7 @@
 
 1. ?. 연산자는 무엇일까?
 
-   - .? 연산자는 **optional chaining 연산자**라고 부른다.
+   - ?. 연산자는 **optional chaining 연산자**라고 부른다.
 
    - null이나 undefined와 같은 **빈 값에 대한 예외처리**를 해준다.
 
