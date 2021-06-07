@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            width: 600px;
+            height: 600px;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 37.468609531851904, lng: 126.92463967075119 },
+                zoom: 17
+            });
+
+            const marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.BOUNCE,
+                position: { lat: 37.468609531851904, lng: 126.92463967075119 }
+            });
+            marker.addListener('click', toggleBounce);
+
+            function toggleBounce() {
+                if(marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMWZdlzmg-1yi84DTrrLkhwvFe0kxU1t8&callback=initMap&region=kr"></script>
+</body>
+</html>
